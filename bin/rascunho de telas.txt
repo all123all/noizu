@@ -1,0 +1,330 @@
+// Ainda falta estilizar e redirecionar os botoões da página
+
+import React, {Component} from 'react';
+import {Image, ImageBackground, StyleSheet, Text, TouchableHighlight, View, TextInput} from "react-native";
+import {Input, Icon, Button} from 'react-native-elements';
+import Colors from "../../../constants/Colors";
+
+const imageBackground = require('../../../../assets/images/account/four.png');
+
+const homeIcon = require('../../../../assets/images/icons/home.png');
+const menuIcon = require('../../../../assets/images/icons/menu.png');
+const chatIcon = require('../../../../assets/images/icons/chat.png');
+const notificacaoIcon = require('../../../../assets/images/icons/notificacao.png');
+
+export default class ModeloDeTela extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            home: 'Dashbord',
+            profile: 'Logon'
+        }
+    }
+
+    render() {
+        return (
+            <ImageBackground
+                source={imageBackground}
+                resizeMode='stretch'
+                style={styles.backgroundImage}>
+
+                <View style={styles.container}>
+                    <View style={styles.offers}>
+                        <Text style={styles.textTopAllBody}>all body</Text>
+                    </View>
+
+                    <View style={styles.icons}>
+                        <TouchableHighlight
+                            style={styles.icon}
+                            onPress={() => this.navigateScreen('OptionsService')}>
+                            <Image
+                                style={styles.iconImage}
+                                source={homeIcon}/>
+                        </TouchableHighlight>
+
+                        <TouchableHighlight onPress={() => this.navigateScreen('MenuUser')}>
+                            <Image
+                                style={styles.iconImage}
+                                source={menuIcon}/>
+                        </TouchableHighlight>
+                        <TouchableHighlight onPress={() => this.navigateScreen('HeaderAccount')}>
+                            <Image
+                                style={styles.iconImage}
+                                source={chatIcon}/>
+                        </TouchableHighlight>
+                        <TouchableHighlight onPress={() => this.navigateScreen('HeaderAccount')}>
+                            <Image
+                                style={styles.iconImage}
+                                source={notificacaoIcon}/>
+                        </TouchableHighlight>
+
+                    </View>
+                </View>
+            </ImageBackground>
+        );
+    }
+
+    navigateScreen(object) {
+        this.props.navigation.navigate(object);
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        height: '100%',
+        width: '100%'
+    },
+    backgroundImage: {
+        flex: 1,
+        width: '100%',
+        height: '100%'
+    },
+    offers: {
+        alignItems: 'center'
+    },
+    textTopAllBody: {
+        marginTop: 60,
+        color: Colors.textColor,
+        fontSize: 30,
+        alignItems: 'center'
+    },
+    icons: {
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        alignSelf: 'flex-start',
+        marginLeft: 26,
+        marginRight: 16,
+        display: 'flex',
+        justifyContent: 'flex-end',
+        flex: 1,
+        marginBottom: 3
+    },
+    icon : {
+        backgroundColor : 'transparent'
+    },
+    iconImage: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        alignSelf: 'flex-start',
+        height: 50,
+        width: 50,
+        marginBottom: 0,
+        marginTop: 80,
+        marginLeft: 16,
+        marginRight: 16,
+    },
+});
+
+
+=======================================================================================================================================
+=======================================================================================================================================
+=======================================================================================================================================
+=======================================================================================================================================
+=======================================================================================================================================
+
+
+import React, {Component} from 'react';
+import {Image, StyleSheet, TouchableOpacity, View} from "react-native";
+
+const homeIcon = require('../../assets/images/icons/home.png');
+const menuIcon = require('../../assets/images/icons/menu.png');
+const chatIcon = require('../../assets/images/icons/chat.png');
+const notificacaoIcon = require('../../assets/images/icons/notificacao.png');
+
+export default class NavigatorFooter extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            home: 'Dashbord',
+            profile: 'Logon'
+        }
+    }
+
+    render() {
+        return (            
+            <View style={styles.icons}>
+                <TouchableOpacity onPress={() => this.navigateScreen('OptionsService')} >
+                    <Image
+                        style={styles.iconImage}
+                        source={homeIcon}/>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.navigateScreen('MenuUser')}>
+                    <Image
+                        style={styles.iconImage}
+                        source={menuIcon}/>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.navigateScreen('')}>
+                    <Image
+                        style={styles.iconImage}
+                        source={chatIcon}/>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.navigateScreen('')}>
+                    <Image
+                        style={styles.iconImage}
+                        source={notificacaoIcon}/>
+                </TouchableOpacity>
+            </View>
+        );
+    }
+
+    navigateScreen(object) {        
+        this.props.navigation.navigate(nextScreen);
+    }
+}
+
+const styles = StyleSheet.create({
+    icons: {
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        marginLeft: 26,
+        marginRight: 16,
+        display: 'flex',
+        justifyContent: 'center',
+        flex: 1,
+        marginBottom: 3,
+        backgroundColor : 'transparent'
+    },
+    icon : {
+        backgroundColor : 'transparent',
+    },
+    iconImage: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        alignSelf: 'flex-start',
+        height: 50,
+        width: 50,
+        marginBottom: 0,
+        marginTop: 80,
+        marginLeft: 16,
+        marginRight: 16,
+    },
+});
+
+Colors.backgroundOffers,
+
+=======================================================================================================================================
+=======================================================================================================================================
+=======================================================================================================================================
+=======================================================================================================================================
+=======================================================================================================================================
+
+BackHandler
+
+this.handleBackPress = this.handleBackPress.bind(this);
+
+componentWillMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    }
+    
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    }
+    
+    handleBackPress () {
+        this.props.navigation.navigate('Profile');
+        return true;
+    }
+
+=======================================================================================================================================
+=======================================================================================================================================
+=======================================================================================================================================
+=======================================================================================================================================
+=======================================================================================================================================
+
+<View style={styles.carouselDisplayer}>
+    <Text style={styles.textOffersScrollview}>
+        Profissionais mais próximos
+    </Text>
+    <ScrollView
+        horizontal={true}
+        showsHorizontalScrollIndicator={true}>
+        <Carousel 
+            imageUri={imageCarousel}
+            name="Fulano da Silva"
+            descript="descript"
+        />
+        <Carousel 
+            imageUri={imageCarousel}
+            name="Fulano Days"
+            descript="descript"
+        />
+        <Carousel 
+            imageUri={imageCarousel}
+            name="Fulano da Silva"
+            descript="descript"
+        />
+    </ScrollView>
+</View>
+
+carouselDisplayer: {
+    alignSelf: 'center',
+    height: '55%',
+    width: '85%',
+    marginTop: 20,
+    backgroundColor: '#7a7a7a61',
+},
+
+textOffersScrollview: {
+    alignSelf: 'center',
+    fontSize: 18,
+    color: Colors.textColor,
+    margin: '2%',
+},
+
+TouchableOpacity style={styles.btnSave} onPress={() => this.navigateScreen('ProfessionalSelectedOptions')}
+
+
+<View style={styles.container}>
+                    
+    <View style={styles.offers}>
+        <Text style={styles.textTopAllBody}>all body</Text>
+    </View>
+
+    <View style={styles.offer}>
+        <Text style={styles.textOffers}>SEJA UM ASSOCIADO</Text>
+    </View>
+
+    <View style={styles.proposalContainer}>
+        <View>
+            <Text style={styles.textLabel}>Adquira seu plano</Text>
+        </View>
+        <View style={styles.inputDescription}>
+            <TextInput
+                placeholder='DESCRIÇÃO'
+                style={styles.inputDescriptionText}
+            />
+        </View>
+    </View> 
+
+    <TouchableOpacity style={styles.btnSave} onPress={() => this.navigateScreen('UserData')}>
+        <Text style={styles.btnSaveText}>CONTINUAR</Text>
+    </TouchableOpacity> 
+
+</View>
+
+constructor(props) {
+        super(props);
+        this.handleBackPress = this.handleBackPress.bind(this);
+        this.state = {
+            home: 'Dashbord',
+            profile: 'Logon'
+        }
+    }
+
+    componentWillMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    }
+    
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    }
+    
+    handleBackPress () {
+        this.props.navigation.navigate('MenuUser');
+        return true;
+    }
+
+
+
+    const imageBackground = require('../../../../assets/images/background/TELA20.2.png');
